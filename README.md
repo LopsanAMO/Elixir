@@ -90,13 +90,13 @@
     ```
     
 ### **Enteros**
-  ```
+  ```ex
   iex> 255
   255
   ```
   
 El soporte para números binarios, octales y hexadecimales también viene incluido:
-  ```
+  ```ex
   iex> 0b0110
   6
   iex> 0o644
@@ -107,7 +107,7 @@ El soporte para números binarios, octales y hexadecimales también viene inclui
   
 ### **Coma flotante**  
   En Elixir, los números con coma flotante requieren un decimal después de al menos un dígito; estos tienen una precisión de 64 bits y soportan e para números exponenciales
-  ```
+  ```ex
   iex> 3.14 
   3.14
   iex> .14 
@@ -118,7 +118,7 @@ El soporte para números binarios, octales y hexadecimales también viene inclui
 
 ### **Booleanos**
   En Elixir, los números con coma flotante requieren un decimal después de al menos un dígito; estos tienen una precisión de 64 bits y soportan e para números exponenciales.
-  ```
+  ```ex
   iex> 3.14 
   3.14
   iex> .14 
@@ -129,7 +129,7 @@ El soporte para números binarios, octales y hexadecimales también viene inclui
 
 ### **Átomos**
   Un Átomo es una constante cuyo nombre es su valor, si estás familiarizado con Ruby estos son equivalentes a los Símbolos:
-  ```
+  ```ex
   iex> :foo
   :foo
   iex> :foo == :bar
@@ -137,7 +137,7 @@ El soporte para números binarios, octales y hexadecimales también viene inclui
   ```
   
 NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y ```:false``` respectivamente.
-  ```
+  ```ex
   iex> true |> is_atom
   true
   iex> :true |> is_boolean
@@ -148,7 +148,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
 
 ### **Cadenas**
   Las cadenas en Elixir están codificadas en utf-8 y están representadas con comillas dobles:
-  ```
+  ```ex
   iex> "Hello"
   "Hello"
   iex> "dziękuję"
@@ -156,7 +156,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
   ```
   
   Las cadenas soportan saltos de línea y secuencias de escape:
-  ```
+  ```ex
   iex> "foo
   ...> bar"
   "foo\nbar"
@@ -168,7 +168,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
 
 ### **Aritmetica**
   Elixir soporta los operadores básicos ```+```, ```-```, ```*```, y ```/``` como era de esperarse. Es importante resaltar que ```/``` siempre retornará un número con coma flotante:
-  ```
+  ```ex
   iex> 2 + 2
   4
   iex> 2 - 1
@@ -180,7 +180,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
   ````
 
   Si tú necesitas una división entera o el resto de una división, Elixir viene con dos funciones útiles para para lograr esto:
-  ```
+  ```ex
   iex> div(10, 5)
   2
   iex> rem(10, 3)
@@ -189,7 +189,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
   
 ### **Operaciones Booleanas**
   Elixir provee los operadores booleanos: ```||```, ```&&```, y ```!```, estos soportan cualquier tipo:
-  ```
+  ```ex
   iex> -20 || true
   -20
   iex> false || 42
@@ -207,7 +207,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
   ```
   
   Hay tres operadores adicionales cuyo primer argumento tiene que ser un booleano (```true``` y ```false```):
-  ```
+  ```ex
   iex> true and 42
   42
   iex> false or true
@@ -222,7 +222,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
 
 ### **Comparación**
  Elixir viene con todos los operadores de comparación a los que estamos acostumbrados: ```==```, ```!=```, ```===```, ```!==```, ```<=```, ```>=```, ```<``` y ```>```.
- ```
+ ```ex
  iex> 1 > 2
  false
  iex> 1 != 2
@@ -234,7 +234,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
  ```
 
 Para comparación estricta de enteros y flotantes usamos ```===```:
- ```
+ ```ex
  iex> 2 === 2.0
  true
  iex> 2 === 2.0
@@ -242,12 +242,12 @@ Para comparación estricta de enteros y flotantes usamos ```===```:
  ```
 
 Una característica importante de Elixir es que cualquier par de tipos se pueden comparar, esto es útil particularmente en ordenación. No necesitamos memorizar el orden pero es importante ser consciente de este:
-```
+```ex
 number < atom < reference < functions < port < pid < tuple < maps < list < bitstring
 ```
 
 Esto puede conducir a algunas interesantes y válidas comparaciones que no puedes encontrar en otros lenguajes:
-```
+```ex
 iex> :hello > 999
 true
 iex> {:hello, :world} > [1, 2, 3]
@@ -256,7 +256,7 @@ false
 
 ### **Interpolacion de cadenas**
  La concatenación de cadenas usa el operador ```<>```:
- ```
+ ```ex
  iex> name = "Sean"
  iex> "Hello " <> name
  "Hello Sean"
