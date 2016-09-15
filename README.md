@@ -166,7 +166,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
 
 ## Operadores Basicos
 
-### Aritmetica
+### **Aritmetica**
   Elixir soporta los operadores básicos ```+```, ```-```, ```*```, y ```/``` como era de esperarse. Es importante resaltar que ```/``` siempre retornará un número con coma flotante:
   ```
   iex> 2 + 2
@@ -187,7 +187,7 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
   1
   ```
   
-### Operaciones Booleanas
+### **Operaciones Booleanas**
   Elixir provee los operadores booleanos: ```||```, ```&&```, y ```!```, estos soportan cualquier tipo:
   ```
   iex> -20 || true
@@ -219,3 +219,45 @@ NOTA: Booleanos ```true``` y ```false``` son también los átomos ```:true``` y 
   iex> not 42
   ** (ArgumentError) argument error
   ```
+
+### **Comparación**
+ Elixir viene con todos los operadores de comparación a los que estamos acostumbrados: ```==```, ```!=```, ```===```, ```!==```, ```<=```, ```>=```, ```<``` y ```>```.
+ ```
+ iex> 1 > 2
+ false
+ iex> 1 != 2
+ true
+ iex> 2 == 2
+ true
+ iex> 2 <= 3
+ true
+ ```
+
+Para comparación estricta de enteros y flotantes usamos ```===```:
+ ```
+ iex> 2 === 2.0
+ true
+ iex> 2 === 2.0
+ false
+ ```
+
+Una característica importante de Elixir es que cualquier par de tipos se pueden comparar, esto es útil particularmente en ordenación. No necesitamos memorizar el orden pero es importante ser consciente de este:
+```
+number < atom < reference < functions < port < pid < tuple < maps < list < bitstring
+```
+
+Esto puede conducir a algunas interesantes y válidas comparaciones que no puedes encontrar en otros lenguajes:
+```
+iex> :hello > 999
+true
+iex> {:hello, :world} > [1, 2, 3]
+false
+````
+
+### **Interpolacion de cadenas**
+ La concatenación de cadenas usa el operador ```<>```:
+ ```
+ iex> name = "Sean"
+ iex> "Hello " <> name
+ "Hello Sean"
+ ````
