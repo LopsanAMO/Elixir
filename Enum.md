@@ -7,7 +7,7 @@ El módulo ```Enum``` incluye más de cien funciones para trabajar con las colec
 
 Esta lección solo cubrirá un subconjunto de las funciones disponibles. Para ver la lista completa de funciones visita la documentación oficial ```Enum```; para enumeración diferida usa el módulo ```Stream```.
 
-### **aall?**
+### **all?**
 
 Cuando usas ```all?```, y muchas de las funciones de ```Enum```, proveemos una función para aplicar a los elementos de nuestra colección. En el caso de ```all?```, la colección entera debe ser evaluada a ```true```, en otro caso ```false``` será retornado:
 ```ex
