@@ -40,7 +40,7 @@ iex> value
 "Successful!"
 iex> {:ok, value} = {:error}
 ** (MatchError) no match of right hand side value: {:error}
-    ```
+```
 
 ## **Operador Pin**
 Como hemos aprendido, el operador de coincidencia realiza una asignación cuando el lado izquierdo de la coincidencia incluye una variable. En algunos casos reenlazar la variable no es el comportamiento deseado. Para esas situaciones, tenemos el operador ```^``` (pin).
@@ -82,4 +82,4 @@ iex> greet.("Hello", "Sean")
 "Hi Sean"
 iex> greet.("Mornin'", "Sean")
 "Mornin', Sean"
-    ```
+```
