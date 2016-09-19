@@ -43,43 +43,43 @@ iex> {:ok, value} = {:error}
     ```
 
 ## **Operador Pin**
-    Como hemos aprendido, el operador de coincidencia realiza una asignación cuando el lado izquierdo de la coincidencia incluye una variable. En algunos casos reenlazar la variable no es el comportamiento deseado. Para esas situaciones, tenemos el operador ```^``` (pin).
+Como hemos aprendido, el operador de coincidencia realiza una asignación cuando el lado izquierdo de la coincidencia incluye una variable. En algunos casos reenlazar la variable no es el comportamiento deseado. Para esas situaciones, tenemos el operador ```^``` (pin).
 
-    Cuando usamos el operador pin con una variable, hacemos una coincidencia sobre el valor existente en lugar de enlazarlo a uno nuevo. Vamos a ver cómo funciona esto:
-    ```ex
-    iex> x = 1
-    1
-    iex> ^x = 2
-    ** (MatchError) no match of right hand side value: 2
-    iex> {x, ^x} = {2, 1}
-    {2, 1}
-    iex> x
-    2
-    ```
+Cuando usamos el operador pin con una variable, hacemos una coincidencia sobre el valor existente en lugar de enlazarlo a uno nuevo. Vamos a ver cómo funciona esto:
+```ex
+iex> x = 1
+1
+iex> ^x = 2
+** (MatchError) no match of right hand side value: 2
+iex> {x, ^x} = {2, 1}
+{2, 1}
+iex> x
+2
+```
 
-    Elixir 1.2 introduce soporte para usar el operador pin en las claves de los mapas y en las cláusulas de función:
-    ```ex
-    iex> key = "hello"
-    "hello"
-    iex> %{^key => value} = %{"hello" => "world"}
-    %{"hello" => "world"}
-    iex> value
-    "world"
-    iex> %{^key => value} = %{:hello => "world"}
-    ** (MatchError) no match of right hand side value: %{hello: "world"}
-    ```
+Elixir 1.2 introduce soporte para usar el operador pin en las claves de los mapas y en las cláusulas de función:
+```ex
+iex> key = "hello"
+"hello"
+iex> %{^key => value} = %{"hello" => "world"}
+%{"hello" => "world"}
+iex> value
+"world"
+iex> %{^key => value} = %{:hello => "world"}
+** (MatchError) no match of right hand side value: %{hello: "world"}
+```
 
-    Un ejemplo de usar el operador pin en una cláusula de función:
-    ```ex
-    iex> greeting = "Hello"
-    "Hello"
-    iex> greet = fn
-    ...>   (^greeting, name) -> "Hi #{name}"
-    ...>   (greeting, name) -> "#{greeting}, #{name}"
-    ...> end
-    #Function<12.54118792/2 in :erl_eval.expr/5>
-    iex> greet.("Hello", "Sean")
-    "Hi Sean"
-    iex> greet.("Mornin'", "Sean")
-    "Mornin', Sean"
+Un ejemplo de usar el operador pin en una cláusula de función:
+```ex
+iex> greeting = "Hello"
+"Hello"
+iex> greet = fn
+...>   (^greeting, name) -> "Hi #{name}"
+...>   (greeting, name) -> "#{greeting}, #{name}"
+...> end
+#Function<12.54118792/2 in :erl_eval.expr/5>
+iex> greet.("Hello", "Sean")
+"Hi Sean"
+iex> greet.("Mornin'", "Sean")
+"Mornin', Sean"
     ```
