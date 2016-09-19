@@ -1,44 +1,45 @@
 # **Coincidencia de Patrones**
-    La coincidencia de patrones es una parte poderosa de Elixir, nos permite coincidir valores simples, estructuras de datos, e incluso funciones. En esta lección vamos a comenzar a ver cómo es usada la coincidencia de patrones.
+
+La coincidencia de patrones es una parte poderosa de Elixir, nos permite coincidir valores simples, estructuras de datos, e incluso funciones. En esta lección vamos a comenzar a ver cómo es usada la coincidencia de patrones.
 
 ## **Operador de coincidencias**
-    En Elixir, el operador ```=``` es en realidad un operador de coincidencia. A través del operador de coincidencia podemos asignar y luego coincidir valores, echemos un vistazo:
-    ```ex
-    iex> x = 1
-    1
-    ```
+En Elixir, el operador ```=``` es en realidad un operador de coincidencia. A través del operador de coincidencia podemos asignar y luego coincidir valores, echemos un vistazo:
+```ex
+iex> x = 1
+1
+```
 
-    Ahora con una coincidencia simple:
-    ```ex
-    iex> 1 = x
-    1
-    iex> 2 = x
-    ** (MatchError) no match of right hand side value: 1
-    ```
+Ahora con una coincidencia simple:
+```ex
+iex> 1 = x
+1
+iex> 2 = x
+** (MatchError) no match of right hand side value: 1
+```
 
-    Ahora con algunas de las colecciones:
-    ```ex
-    # Listas
-    iex> list = [1, 2, 3]
-    iex> [1, 2, 3] = list
-    [1, 2, 3]
-    iex> [] = list
-    ** (MatchError) no match of right hand side value: [1, 2, 3]
+Ahora con algunas de las colecciones:
+```ex
+# Listas
+iex> list = [1, 2, 3]
+iex> [1, 2, 3] = list
+[1, 2, 3]
+iex> [] = list
+** (MatchError) no match of right hand side value: [1, 2, 3]
 
-    iex> [1|tail] = list
-    [1, 2, 3]
-    iex> tail
-    [2, 3]
-    iex> [2|_] = list
-    ** (MatchError) no match of right hand side value: [1, 2, 3]
+iex> [1|tail] = list
+[1, 2, 3]
+iex> tail
+[2, 3]
+iex> [2|_] = list
+** (MatchError) no match of right hand side value: [1, 2, 3]
 
-    # Tuplas
-    iex> {:ok, value} = {:ok, "Successful!"}
-    {:ok, "Successful!"}
-    iex> value
-    "Successful!"
-    iex> {:ok, value} = {:error}
-    ** (MatchError) no match of right hand side value: {:error}
+# Tuplas
+iex> {:ok, value} = {:ok, "Successful!"}
+{:ok, "Successful!"}
+iex> value
+"Successful!"
+iex> {:ok, value} = {:error}
+** (MatchError) no match of right hand side value: {:error}
     ```
 
 ## **Operador Pin**
