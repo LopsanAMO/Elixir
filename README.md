@@ -7,7 +7,7 @@
   * Actualizar homebrew
     ```
     brew update
-  ````
+  ```
   * Instalar Elixir
     ```
     brew install elixir
